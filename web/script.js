@@ -11,37 +11,17 @@ var numRight = 0;
 var phraseLength = 0;
 var numChar = 0;
 var phrases = ["Early bird gets the worm", "Read between the lines", "I can eat a horse", "Twenty-four seven", "Cat got your tounge", "One in one million", "I beg to differ", "Easier said than done", "Add insult to injury", "Don't cry over spilled milk", "Curiosity killed the cat", "Two peas in a pod", "That's the last straw", "Piece of cake", "Speak of the devil", "Go the whole nine yards", "An eye for an eye", "Hit the hay", "Stab someone in the back", "Quit cold turkey", "Cut to the chase", "Best of both worlds", "Kill two birds with one stone", "Break a leg", "Hit the nail on the head", "Kick the bucket"];     
-var movies = ["Frankly, my dear, I don't give a damn", "May the Force be with you", "Titanic", "After all this time? Always.", "Life is like a box of chocolates", "To infinity and beyond", "I'll be back", "Wax on, wax off", "I'm going to make him an offer he can't refuse", "Want to know how I got these scars?", "Citizen Kane", "Team Edward", "No, I am your father", "Do or do not. There is no try.", "Do you want to build a snowman?", "Hakuna Matata", "Go ahead, make my day", "Bond. James Bond.", "You're going to need a bigger boat", "You talkin' to me?", "Here's Johnny!", "The hills are alive!", "Toto, I have a feeling we're not in Kansas anymore", "Welcome to Jurassic Park", "Say hello to my little friend!", "Run Forest Run!"];
-var songs = ["I came in like a wrecking ball", "Yesterday all my troubles seemed so far away", "Work, work, work, work, work", "Just a small town girl", "I still haven't found what I'm looking for", "Annie are you OK?", "Nah nah nah nah nah nah nah, nah nah nah nah, hey Jude", "Is this the real life? Is this just fantasy?", "We don't need no education", "Have you ever seen the rain?", "She's got eyes of the bluest skys", "So close, no matter how far", "I don't want to miss a thing", "Take my hand, we'll make it, I swear", "That's me in the corner", "A mulatto, an albino, a mosquito, my libido", "You've been thunderstruck", "Another one bites the dust", "Eye of the tiger", "B-B-B-Bennie and the Jets", "Sing us a song you're the piano man", "Hello darkness my old friend", "Somewhere over the rainbow blue birds fly", "Don't worry about a thing", "Imagine there's no heaven", "Can you feel the love tonight?"];
 
-
-function sp(){
+function Game(){
     document.getElementById('introPage').style.display = "none";
     document.getElementById('singlePage').style.display = "block";
 }
-
 
 function phrase(){
     rand = Math.floor(Math.random()*phrases.length);
     word = phrases[rand];
     document.getElementById('singlePage').style.display = "none";
     document.getElementById('categoryName').innerHTML = "Phrases";
-    hangman();
-}
-
-function movie(){
-    rand = Math.floor(Math.random()*movies.length);
-    word = movies[rand];
-    document.getElementById('singlePage').style.display = "none";
-    document.getElementById('categoryName').innerHTML = "Movies and movie quotes";
-    hangman();
-}
-
-function song(){
-    rand = Math.floor(Math.random()*songs.length);
-    word = songs[rand];
-    document.getElementById('singlePage').style.display = "none";
-    document.getElementById('categoryName').innerHTML = "Song titles and lyrics";
     hangman();
 }
 
@@ -67,7 +47,6 @@ function song(){
             results.style.lineHeight = "75px";
         }
         document.getElementById('challengeBank').style.display = "none";
-        document.getElementById('vidSent').style.display = "block";
         document.getElementById('again').style.display = "block";
         document.getElementById('home').style.display = "block";
     }
@@ -93,7 +72,6 @@ function song(){
             results.style.lineHeight = "75px";
         }
         document.getElementById('challengeBank').style.display = "none";
-        document.getElementById('vidSent').style.display = "block";
         document.getElementById('again').style.display = "block";
         document.getElementById('home').style.display = "block";
         document.getElementById('letter1').style.visibility = "visible";
@@ -213,63 +191,7 @@ function draw(){
             ctx.moveTo(150,40);
             ctx.lineTo(150,80);
             ctx.stroke();
-    var cntx = document.getElementById("homeHangman").getContext('2d');
-        cntx.fillStyle = "white";
-        cntx.lineWidth=3;
-        cntx.fillRect(0, 0, 300, 300);
-        cntx.beginPath(); //vertical bar
-            cntx.moveTo(50,270);
-            cntx.lineTo(50,25);
-            cntx.stroke();
-        cntx.beginPath(); //vertical bar long piece
-            cntx.moveTo(65,270);
-            cntx.lineTo(65,85);
-            cntx.stroke();
-        cntx.beginPath(); //vertical bar short piece
-            cntx.moveTo(65,64);
-            cntx.lineTo(65,40);
-            cntx.stroke();
-        cntx.beginPath(); //horizontal bar
-            cntx.moveTo(49,25);
-            cntx.lineTo(175,25);
-            cntx.stroke();
-        cntx.beginPath(); //horizontal bar short piece
-            cntx.moveTo(49,40);
-            cntx.lineTo(86,40);
-            cntx.stroke();
-        cntx.beginPath(); //horizontal bar long piece
-            cntx.moveTo(106,40);
-            cntx.lineTo(175,40);
-            cntx.stroke();
-        cntx.beginPath(); //small vertical bar
-            cntx.moveTo(173,25);
-            cntx.lineTo(173,40);
-            cntx.stroke();
-        cntx.beginPath(); //cross bar
-            cntx.moveTo(50,80);
-            cntx.lineTo(100,25);
-            cntx.stroke();
-        cntx.beginPath(); //cross bar
-            cntx.moveTo(60,90);
-            cntx.lineTo(111,35);
-            cntx.stroke();
-        cntx.beginPath(); //cross bar
-            cntx.moveTo(50,80);
-            cntx.lineTo(60,90);
-            cntx.stroke();
-        cntx.beginPath(); //cross bar
-            cntx.moveTo(100,25);
-            cntx.lineTo(111,35);
-            cntx.stroke();
-        cntx.beginPath(); //ground
-            cntx.moveTo(35,270);
-            cntx.lineTo(265,270);
-            cntx.stroke();
-        cntx.beginPath(); //noose
-            cntx.moveTo(150,40);
-            cntx.lineTo(150,80);
-            cntx.stroke();
-}
+        }
 
 function splitWords(){
     var placeKeep = 0;
@@ -341,22 +263,36 @@ function guessLetter(){
         }
     }
     if(numWrong==7){
-        results.innerHTML = "You lose!<br>Keep guessing until you get it right.";
+        results.innerHTML = "You lose!";
         document.getElementById('again').style.display = "block";
         document.getElementById('home').style.display = "block";
-        document.getElementById('vidSent').style.display = "block";
-        if(ul1 == 50){
-            results.style.lineHeight = "40px";
-        }
-        if(ul1 == 28){
-            results.style.lineHeight = "25px";
-        }
-        if(ul1 == 18){
-            results.style.lineHeight = "20px";
-        }
-    }
-    if(numRight==phraseLength){
-        win();
+        document.getElementById('letterBank').style.visibility = "hidden";
+        document.getElementById('letter1').style.visibility = "visible";
+        document.getElementById('letter2').style.visibility = "visible";
+        document.getElementById('letter3').style.visibility = "visible";
+        document.getElementById('letter4').style.visibility = "visible";
+        document.getElementById('letter5').style.visibility = "visible";
+        document.getElementById('letter6').style.visibility = "visible";
+        document.getElementById('letter7').style.visibility = "visible";
+        document.getElementById('letter8').style.visibility = "visible";
+        document.getElementById('letter9').style.visibility = "visible";
+        document.getElementById('letter10').style.visibility = "visible";
+        document.getElementById('letter11').style.visibility = "visible";
+        document.getElementById('letter12').style.visibility = "visible";
+        document.getElementById('letter13').style.visibility = "visible";
+        document.getElementById('letter14').style.visibility = "visible";
+        document.getElementById('letter15').style.visibility = "visible";
+        document.getElementById('letter16').style.visibility = "visible";
+        document.getElementById('letter17').style.visibility = "visible";
+        document.getElementById('letter18').style.visibility = "visible";
+        document.getElementById('letter19').style.visibility = "visible";
+        document.getElementById('letter20').style.visibility = "visible";
+        document.getElementById('letter21').style.visibility = "visible";
+        document.getElementById('letter22').style.visibility = "visible";
+        document.getElementById('letter23').style.visibility = "visible";
+        document.getElementById('letter24').style.visibility = "visible";
+        document.getElementById('letter25').style.visibility = "visible";
+        document.getElementById('letter26').style.visibility = "visible";
     }
 }
 
@@ -367,11 +303,9 @@ function win(){
         results.style.visibility = "visible";
         results.style.color = "#00b100";
     if(numWrong > 6){
-        results.innerHTML = "It's about time you figured it out...";
         document.getElementById('letterBank').style.display = "none";
         again.style.display = "block";
         document.getElementById('home').style.display = "block";
-        document.getElementById('vidSent').style.display = "block";
         if(ul1 == 50){
             results.style.lineHeight = "70px";
             results.style.fontSize = "30px";
@@ -390,7 +324,6 @@ function win(){
         document.getElementById('letterBank').style.display = "none";
         again.style.display = "block";
         document.getElementById('home').style.display = "block";
-        document.getElementById('vidSent').style.display = "block";
         if(ul1 == 50){
             again.style.marginTop = "75px";
             results.style.marginTop = "75px";
@@ -508,371 +441,6 @@ function hang(){
             ctx.lineTo(160,98);
             ctx.stroke();
     }
-    if(numWrong==8){
-        ctx.fillRect(118, 135, 70, 120); //cover body
-        ctx.lineWidth=3;
-        ctx.beginPath(); //body
-            ctx.moveTo(150,150);
-            ctx.lineTo(150,220);
-            ctx.stroke();
-        ctx.beginPath(); //right arm
-            ctx.moveTo(150,165);
-            ctx.lineTo(180,180);
-            ctx.stroke();
-        ctx.beginPath(); //left arm
-            ctx.moveTo(150,165);
-            ctx.lineTo(120,180);
-            ctx.stroke();
-        ctx.beginPath(); //right leg
-            ctx.moveTo(149,218);
-            ctx.lineTo(180,260);
-            ctx.stroke();
-        ctx.beginPath(); //left leg
-            ctx.moveTo(151,218);
-            ctx.lineTo(120,260);
-            ctx.stroke();
-    }
-    if(numWrong==9){
-        ctx.fillRect(118, 143, 70, 120); //cover body
-        ctx.lineWidth=3;
-        ctx.beginPath(); //body
-            ctx.moveTo(150,165);
-            ctx.lineTo(150,235);
-            ctx.stroke();
-        ctx.beginPath(); //right arm
-            ctx.moveTo(150,180);
-            ctx.lineTo(180,195);
-            ctx.stroke();
-        ctx.beginPath(); //left arm
-            ctx.moveTo(150,180);
-            ctx.lineTo(120,195);
-            ctx.stroke();
-        ctx.beginPath(); //right leg
-            ctx.moveTo(149,232);
-            ctx.lineTo(180,270);
-            ctx.stroke();
-        ctx.beginPath(); //left leg
-            ctx.moveTo(151,232);
-            ctx.lineTo(120,270);
-            ctx.stroke();
-    }
-    if(numWrong==10){
-        ctx.fillRect(118, 148, 70, 120); //cover body
-        ctx.lineWidth=3;
-        ctx.beginPath(); //body
-            ctx.moveTo(150,180);
-            ctx.lineTo(150,250);
-            ctx.stroke();
-        ctx.beginPath(); //right arm
-            ctx.moveTo(150,195);
-            ctx.lineTo(180,210);
-            ctx.stroke();
-        ctx.beginPath(); //left arm
-            ctx.moveTo(150,195);
-            ctx.lineTo(120,210);
-            ctx.stroke();
-        ctx.beginPath(); //right leg
-            ctx.moveTo(149,247);
-            ctx.lineTo(200,270);
-            ctx.stroke();
-        ctx.beginPath(); //left leg
-            ctx.moveTo(151,247);
-            ctx.lineTo(100,270);
-            ctx.stroke();
-    }
-    if(numWrong==11){
-        ctx.fillRect(90, 148, 120, 120); //cover body
-        ctx.lineWidth=3;
-        ctx.beginPath(); //body
-            ctx.moveTo(200,195);
-            ctx.lineTo(150,268);
-            ctx.stroke();
-        ctx.beginPath(); //right arm
-            ctx.moveTo(191,210);
-            ctx.lineTo(220,245);
-            ctx.stroke();
-        ctx.beginPath(); //left arm
-            ctx.moveTo(191,210);
-            ctx.lineTo(145,237);
-            ctx.stroke();
-        ctx.beginPath(); //right leg
-            ctx.moveTo(149,268);
-            ctx.lineTo(210,268);
-            ctx.stroke();
-        ctx.beginPath(); //left leg
-            ctx.moveTo(151,268);
-            ctx.lineTo(90,268);
-            ctx.stroke();
-    }
-    if(numWrong==12){
-        ctx.fillRect(90, 145, 140, 120); //cover body
-        ctx.lineWidth=3;
-        ctx.beginPath(); //body
-            ctx.moveTo(230,220);
-            ctx.lineTo(150,268);
-            ctx.stroke();
-        ctx.beginPath(); //right arm
-            ctx.moveTo(212,230);
-            ctx.lineTo(240,255);
-            ctx.stroke();
-        ctx.beginPath(); //left arm
-            ctx.moveTo(212,230);
-            ctx.lineTo(165,237);
-            ctx.stroke();
-    }
-    if(numWrong==13){
-        ctx.fillRect(90, 145, 160, 120); //cover body
-        ctx.lineWidth=3;
-        ctx.beginPath(); //body
-            ctx.moveTo(245,255);
-            ctx.lineTo(150,268);
-            ctx.stroke();
-        ctx.beginPath(); //right arm
-            ctx.moveTo(225,255);
-            ctx.lineTo(255,268);
-            ctx.stroke();
-        ctx.beginPath(); //left arm
-            ctx.moveTo(225,255);
-            ctx.lineTo(185,250);
-            ctx.stroke();
-    }
-    if(numWrong==14){
-        ctx.fillRect(90, 145, 160, 120); //cover body
-        ctx.lineWidth=3;
-        ctx.beginPath(); //body
-            ctx.moveTo(245,264);
-            ctx.lineTo(150,268);
-            ctx.stroke();
-        ctx.beginPath(); //right arm
-            ctx.moveTo(225,268);
-            ctx.lineTo(255,268);
-            ctx.stroke();
-        ctx.beginPath(); //left arm
-            ctx.moveTo(225,264);
-            ctx.lineTo(185,264);
-            ctx.stroke();
-        ctx.fillRect(138, 90, 24, 24); //cover face
-        ctx.beginPath(); //straight mouth
-            ctx.moveTo(140,108);
-            ctx.lineTo(160,108);
-            ctx.stroke();
-        ctx.beginPath(); //left eye
-            ctx.arc(143, 95, 3.5, 0, 2*Math.PI);
-            ctx.stroke();
-        ctx.beginPath(); //right eye
-            ctx.arc(157, 95, 3.5, 0, 2*Math.PI);
-            ctx.stroke();
-    }
-    if(numWrong==15){
-        ctx.fillRect(138, 102, 24, 12); //cover mouth
-        ctx.beginPath(); //mouth
-            ctx.arc(150, 103, 9, 0, Math.PI);
-            ctx.stroke();
-    }
-    if(numWrong==16){
-        ctx.fillRect(128, 78, 45, 45); //cover head
-        ctx.beginPath(); //head
-            ctx.arc(150, 120, 20, 0, 2*Math.PI);
-            ctx.stroke();
-        ctx.beginPath(); //left eye
-            ctx.arc(143, 115, 3.5, 0, 2*Math.PI);
-            ctx.stroke();
-        ctx.beginPath(); //right eye
-            ctx.arc(157, 115, 3.5, 0, 2*Math.PI);
-            ctx.stroke();
-        ctx.beginPath(); //mouth
-            ctx.arc(150, 123, 9, 0, Math.PI);
-            ctx.stroke();
-    }
-    if(numWrong==17){
-        ctx.fillRect(128, 98, 45, 45); //cover head
-        ctx.beginPath(); //head
-            ctx.arc(150, 140, 20, 0, 2*Math.PI);
-            ctx.stroke();
-        ctx.beginPath(); //left eye
-            ctx.arc(143, 135, 3.5, 0, 2*Math.PI);
-            ctx.stroke();
-        ctx.beginPath(); //right eye
-            ctx.arc(157, 135, 3.5, 0, 2*Math.PI);
-            ctx.stroke();
-        ctx.beginPath(); //mouth
-            ctx.arc(150, 143, 9, 0, Math.PI);
-            ctx.stroke();
-    }
-    if(numWrong==17){
-        ctx.fillRect(128, 118, 45, 45); //cover head
-        ctx.beginPath(); //head
-            ctx.arc(150, 160, 20, 0, 2*Math.PI);
-            ctx.stroke();
-        ctx.beginPath(); //left eye
-            ctx.arc(143, 155, 3.5, 0, 2*Math.PI);
-            ctx.stroke();
-        ctx.beginPath(); //right eye
-            ctx.arc(157, 155, 3.5, 0, 2*Math.PI);
-            ctx.stroke();
-        ctx.beginPath(); //straight mouth
-            ctx.moveTo(140,168);
-            ctx.lineTo(160,168);
-            ctx.stroke();
-    }
-    if(numWrong==18){
-        ctx.fillRect(128, 138, 45, 45); //cover head
-        ctx.beginPath(); //head
-            ctx.arc(150, 180, 20, 0, 2*Math.PI);
-            ctx.stroke();
-        ctx.beginPath(); //left eye
-            ctx.arc(143, 175, 3.5, 0, 2*Math.PI);
-            ctx.stroke();
-        ctx.beginPath(); //right eye
-            ctx.arc(157, 175, 3.5, 0, 2*Math.PI);
-            ctx.stroke();
-        ctx.beginPath(); //straight mouth
-            ctx.moveTo(140,188);
-            ctx.lineTo(160,188);
-            ctx.stroke();
-    }
-    if(numWrong==19){
-        ctx.fillRect(128, 158, 45, 45); //cover head
-        ctx.beginPath(); //head
-            ctx.arc(150, 200, 20, 0, 2*Math.PI);
-            ctx.stroke();
-        ctx.beginPath(); //left eye
-            ctx.arc(143, 195, 3.5, 0, 2*Math.PI);
-            ctx.stroke();
-        ctx.beginPath(); //right eye
-            ctx.arc(157, 195, 3.5, 0, 2*Math.PI);
-            ctx.stroke();
-        ctx.beginPath(); //sad mouth
-            ctx.arc(150, 213, 9, 0, Math.PI, true);
-            ctx.stroke();
-    }
-    if(numWrong==20){
-        ctx.fillRect(128, 178, 45, 45); //cover head
-        ctx.beginPath(); //head
-            ctx.arc(150, 220, 20, 0, 2*Math.PI);
-            ctx.stroke();
-        ctx.beginPath(); //left eye
-            ctx.arc(143, 215, 3.5, 0, 2*Math.PI);
-            ctx.stroke();
-        ctx.beginPath(); //right eye
-            ctx.arc(157, 215, 3.5, 0, 2*Math.PI);
-            ctx.stroke();
-        ctx.beginPath(); //sad mouth
-            ctx.arc(150, 233, 9, 0, Math.PI, true);
-            ctx.stroke();
-    }
-    if(numWrong==21){
-        ctx.fillRect(128, 198, 45, 45); //cover head
-        ctx.beginPath(); //head
-            ctx.arc(150, 240, 20, 0, 2*Math.PI);
-            ctx.stroke();
-        ctx.beginPath(); //left eye
-            ctx.arc(143, 235, 3.5, 0, 2*Math.PI);
-            ctx.stroke();
-        ctx.beginPath(); //right eye
-            ctx.arc(157, 235, 3.5, 0, 2*Math.PI);
-            ctx.stroke();
-        ctx.beginPath(); //sad mouth
-            ctx.arc(150, 253, 9, 0, Math.PI, true);
-            ctx.stroke();
-    }
-    if(numWrong==22){
-        ctx.fillRect(128, 218, 45, 45); //cover head
-        ctx.beginPath(); //head
-            ctx.arc(150, 243, 20, 0, 2*Math.PI);
-            ctx.stroke();
-        ctx.beginPath(); //left eye
-            ctx.moveTo(140,234);
-            ctx.lineTo(146,239);
-            ctx.stroke();
-            ctx.moveTo(140,239);
-            ctx.lineTo(146,234);
-            ctx.stroke();
-        ctx.beginPath(); //right eye
-            ctx.moveTo(154,234);
-            ctx.lineTo(160,239);
-            ctx.stroke(); 
-            ctx.moveTo(154,239);
-            ctx.lineTo(160,234);
-            ctx.stroke();
-        ctx.beginPath(); //straight mouth
-            ctx.moveTo(140,250);
-            ctx.lineTo(160,250);
-            ctx.stroke();
-    }
-    if(numWrong==23){
-        ctx.fillRect(128, 220, 45, 45); //cover head
-        ctx.beginPath(); //head
-            ctx.arc(129, 246, 20, 0, 2*Math.PI);
-            ctx.stroke();
-        ctx.beginPath(); //left eye
-            ctx.moveTo(115,245);
-            ctx.lineTo(121,250);
-            ctx.stroke();
-            ctx.moveTo(115,250);
-            ctx.lineTo(121,245);
-            ctx.stroke();
-        ctx.beginPath(); //right eye
-            ctx.moveTo(120,234);
-            ctx.lineTo(126,239);
-            ctx.stroke(); 
-            ctx.moveTo(120,239);
-            ctx.lineTo(126,234);
-            ctx.stroke();
-        ctx.beginPath(); //straight mouth
-            ctx.moveTo(129,257);
-            ctx.lineTo(138,240);
-            ctx.stroke();
-    }
-    if(numWrong==24){
-        ctx.fillRect(106, 218, 45, 45); //cover head
-        ctx.fillRect(120, 261, 25, 5); //cover rest of head
-        ctx.beginPath(); //head
-            ctx.arc(108, 247, 20, 0, 2*Math.PI);
-            ctx.stroke();
-        ctx.beginPath(); //left eye
-            ctx.moveTo(105,257);
-            ctx.lineTo(111,262);
-            ctx.stroke();
-            ctx.moveTo(105,262);
-            ctx.lineTo(111,257);
-            ctx.stroke();
-        ctx.beginPath(); //right eye
-            ctx.moveTo(94,248);
-            ctx.lineTo(100,253);
-            ctx.stroke(); 
-            ctx.moveTo(94,253);
-            ctx.lineTo(100,248);
-            ctx.stroke();
-        ctx.beginPath(); //straight mouth
-            ctx.moveTo(121,248);
-            ctx.lineTo(101,235);
-            ctx.stroke();
-    }
-    if(numWrong==25){
-        ctx.fillRect(86, 220, 45, 45); //cover head
-        ctx.beginPath(); //head
-            ctx.arc(87, 248, 20, 0, 2*Math.PI);
-            ctx.stroke();
-        ctx.beginPath(); //left eye
-            ctx.moveTo(78,250);
-            ctx.lineTo(84,256);
-            ctx.stroke();
-            ctx.moveTo(78,256);
-            ctx.lineTo(84,250);
-            ctx.stroke();
-        ctx.beginPath(); //right eye
-            ctx.moveTo(91,250);
-            ctx.lineTo(97,256);
-            ctx.stroke(); 
-            ctx.moveTo(91,256);
-            ctx.lineTo(97,250);
-            ctx.stroke();
-        ctx.beginPath(); //straight mouth
-            ctx.moveTo(77,240);
-            ctx.lineTo(97,240);
-            ctx.stroke();
-    }
 }
 
 function reset(){
@@ -910,7 +478,6 @@ function reset(){
     results.style.marginTop = "5px";
     results.style.lineHeight = "40px";
     results.innerHTML = " ";
-    document.getElementById('vidSent').style.display = "none";
     document.getElementById('letterBank').style.display = "block";
     again.style.marginTop = "0px";
     again.style.display = "none";
@@ -918,14 +485,6 @@ function reset(){
     if(phrases.indexOf(word) > -1){
         phrases.splice(rand,1);
         phrase();
-    }
-    else if(movies.indexOf(word) > -1){
-        movies.splice(rand,1);
-        movie();
-    }
-    else if(songs.indexOf(word) > -1){
-        songs.splice(rand,1);
-        song();
     }
     else if(document.getElementById('charcount').innerHTML > 0){
         document.getElementById('gamePage').style.display = "none";
