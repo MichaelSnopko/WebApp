@@ -37,10 +37,15 @@ public class WordREST {
     }
     
     @GET
-    @Path("{id}")
+    @Path("{wordId}")
     @Produces("application/json")
-    public Response getById(@PathParam("id") int id) {
-        return null;
+    public Response getById(@PathParam("wordId") int id) {
+        JsonObject json = words.getByIdJson(id);
+        if (json != null) {
+            return Response.ok(json).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
     }
     
     
@@ -52,7 +57,7 @@ public class WordREST {
     }
     
     @PUT
-    @Path("{id}")
+    @Path("{wordId}")
     @Consumes("application/json")
     @Produces("application/json")
     public Response set(@PathParam("id") int id) {
