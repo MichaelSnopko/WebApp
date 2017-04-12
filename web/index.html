@@ -21,47 +21,22 @@ and open the template in the editor.
     <div id="introPage">
         <div id="introText">
             <p>Welcome to online hangman!</p>
-            <p>Select single player or multiplayer to begin!</p>
+            <p>Click To Play!</p>
             <div id="buttonContainer">
-                <div id="sp" onclick="sp()">Single player</div>
-                <!-- <div id="mp" onclick="mp()">Multiplayer</div>-->
+                <div id="sp" onclick="Game()">Start</div>
             </div>
         </div>
-        <canvas id="homeHangman" width="300px" height="300px"></canvas>
+ 
     </div>
+    
     <div id="singlePage">
-        <p>Pick a category:</p>
+        <p>Welcome to online hangman!</p>
         <div id="categoryHolder">
             <div id="category">
                 <div id="category1">
-                    <div id="phrases" onclick="phrase()">Phrases</div>
-                    <div id="movies" onclick="movie()">Movies</div>
-                </div>
-                <div id="category2">
-                    <div id="songs" onclick="song()">Songs</div>
-                    <div id="challenge" onclick="challenge()">Challenge</div>
-                </div>
+                    <div id="phrases" onclick="phrase()">Phrases</div>  
+                </div> 
             </div>
-            <div id="mp1" onclick="mp()">Multiplayer</div>
-        </div>
-    </div>
-    <div id="multiPage">
-        <div id="wordInput">
-            <div id="multiText">
-                <p>The phrase guesser should look away from the screen now.</p>
-                <p>Phrase creator, type your phrase and click submit!</p>
-            </div>
-            <div id="inputContainer">
-                <textarea id="input" cols="40" rows="5" onkeyup = "countChars('input','charcount');" onkeydown = "countChars('input','charcount');" onmouseout = "countChars('input','charcount');"></textarea>
-                <span id="restriction">Only special characters allowed: <span style="font-weight: 700;">? ! , . ' &ndash;</span></span>
-            </div>
-            <div id="characterCount">
-                <p id="charContain">
-                    <span id="charcount">0</span>/100 characters
-                </p>
-                <div id="submit" onclick="readText()">Submit</div>
-            </div>
-            <div id="sp1" onclick="sp()">Single player</div>
         </div>
     </div>
     <div id="gamePage">
@@ -370,23 +345,15 @@ and open the template in the editor.
         </div>
         <canvas id="hangman" width="300px" height="300px"></canvas>
         <div id="results"></div>
+        <div id="again" onClick="reset()">Play again!</div>
+        <div id="home" onClick="window.location.reload()">Main menu</div>
+        
         <div id="letterBank">
                 <div id="a" value="A" onclick="guessLetter()">A</div><div id="b" value="B" onclick="guessLetter()">B</div><div id="c" value="C" onclick="guessLetter()">C</div><div id="d" value="D" onclick="guessLetter()">D</div><div id="e" value="E" onclick="guessLetter()">E</div><div id="f" value="F" onclick="guessLetter()">F</div><div id="g" value="G" onclick="guessLetter()">G</div><div id="h" value="H" onclick="guessLetter()">H</div><div id="i" value="I" onclick="guessLetter()">I</div><div id="j" value="J" onclick="guessLetter()">J</div><div id="k" value="K" onclick="guessLetter()">K</div><div id="l" value="L" onclick="guessLetter()">L</div><div id="m" value="M" onclick="guessLetter()">M</div><div id="n" value="N" onclick="guessLetter()">N</div><div id="o" value="O" onclick="guessLetter()">O</div><div id="p" value="P" onclick="guessLetter()">P</div><div id="q" value="Q" onclick="guessLetter()">Q</div><div id="r" value="R" onclick="guessLetter()">R</div><div id="s" value="S" onclick="guessLetter()">S</div><div id="t" value="T" onclick="guessLetter()">T</div><div id="u" value="U" onclick="guessLetter()">U</div><div id="v" value="V" onclick="guessLetter()">V</div><div id="w" value="W" onclick="guessLetter()">W</div><div id="x" value="X" onclick="guessLetter()">X</div><div id="y" value="Y" onclick="guessLetter()">Y</div><div id="z" value="Z" onclick="guessLetter()">Z</div>
         </div>
         <div id="challengeBank">
                 <div id="a" value="A" onclick="challengeGuess()">A</div><div id="b" value="B" onclick="challengeGuess()">B</div><div id="c" value="C" onclick="challengeGuess()">C</div><div id="d" value="D" onclick="challengeGuess()">D</div><div id="e" value="E" onclick="challengeGuess()">E</div><div id="f" value="F" onclick="challengeGuess()">F</div><div id="g" value="G" onclick="challengeGuess()">G</div><div id="h" value="H" onclick="challengeGuess()">H</div><div id="i" value="I" onclick="challengeGuess()">I</div><div id="j" value="J" onclick="challengeGuess()">J</div><div id="k" value="K" onclick="challengeGuess()">K</div><div id="l" value="L" onclick="challengeGuess()">L</div><div id="m" value="M" onclick="challengeGuess()">M</div><div id="n" value="N" onclick="challengeGuess()">N</div><div id="o" value="O" onclick="challengeGuess()">O</div><div id="p" value="P" onclick="challengeGuess()">P</div><div id="q" value="Q" onclick="challengeGuess()">Q</div><div id="r" value="R" onclick="challengeGuess()">R</div><div id="s" value="S" onclick="challengeGuess()">S</div><div id="t" value="T" onclick="challengeGuess()">T</div><div id="u" value="U" onclick="challengeGuess()">U</div><div id="v" value="V" onclick="challengeGuess()">V</div><div id="w" value="W" onclick="challengeGuess()">W</div><div id="x" value="X" onclick="challengeGuess()">X</div><div id="y" value="Y" onclick="challengeGuess()">Y</div><div id="z" value="Z" onclick="challengeGuess()">Z</div>
-        </div>
-        <div id="again" onClick="reset()">Play again!</div>
-        <div id="home" onClick="window.location.reload()">Main menu</div>
-        <p id="vidSent">Click <span id="vidLink" onClick="video()">here</span> to watch and learn how this website functions.</p>
-    </div>
-    <div id="videoPage">
-        <p id="vidHead">How this website works</p>
-        <iframe id ="video" width="800" height="450" src="https://www.youtube.com/embed/ZtNyfGyS00M" frameborder="0" allowfullscreen></iframe>
-        <iframe id ="videoTab" width="500" height="280" src="https://www.youtube.com/embed/ZtNyfGyS00M" frameborder="0" allowfullscreen></iframe>
-        <iframe id ="videoMob" width="300" height="170" src="https://www.youtube.com/embed/ZtNyfGyS00M" frameborder="0" allowfullscreen></iframe>
-        <p id="vidCaption"><i>Click <a href="https://youtu.be/ZtNyfGyS00M" target="_blank">here</a> to view this video in a separate tab.</i></p>
-        <div id="home1" onClick="window.location.reload()">Main menu</div>
+        </div>  
     </div>
 </body>
 </html>
